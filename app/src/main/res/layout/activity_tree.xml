@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/button_bg"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="       每一位用户其实拥有小树苗N棵，每完成一次在自己规定时间的睡眠时间，小树苗就增加一棵，反之，将会减少一棵。进行好友较量时，树苗棵树也可以当做一项措施哦，所以请你克制自己或者养成良好的睡眠习惯吧！"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</LinearLayout>

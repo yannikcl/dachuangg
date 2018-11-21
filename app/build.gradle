@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.example.administrator.newapplication"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86'//, 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:27.1.1'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    //Bmob
+    implementation('cn.bmob.android:bmob-sdk:3.5.0') {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+        exclude group: 'io.reactivex:rxandroid'
+        exclude group: 'io.reactivex:rxjava'
+        exclude group: 'com.squareup.okio'
+    }
+    //实现图片的圆化
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    //RxVolley
+    implementation('com.kymjs.rxvolley:rxvolley:1.1.2') {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+        exclude group: 'com.squareup.okio'
+        exclude group: 'io.reactivex'
+    }
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //RxVolley下载模块
+    implementation('com.kymjs.rxvolley:okhttp:1.1.0') {
+        exclude group: 'com.squareup.okhttp3'
+        exclude group: 'com.squareup.okio'
+    }
+    //动态图的加载
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+    //闹钟
+    implementation project(':mylibrary')
+    implementation 'com.bigkoo:pickerview:2.0.8'
+    //噪音检测
+    implementation 'org.xutils:xutils:3.5.0'
+    implementation 'com.jiechic.library:xUtils:2.6.14'
+    testImplementation 'junit:junit:4.12'
+
+    implementation files('libs/aip-java-sdk-4.1.0.jar')
+    //testImplementation 'junit:junit:4.12'
+    //androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+}
